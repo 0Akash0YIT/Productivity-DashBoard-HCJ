@@ -148,6 +148,7 @@ body main .todo-full .task-container .add-task form input {
   padding: 20px;
   border: none;
   border-radius: 20px;
+  font-size: 20px;
 }
 html main .todo-full .task-container .add-task form textarea,
 body main .todo-full .task-container .add-task form textarea {
@@ -156,6 +157,7 @@ body main .todo-full .task-container .add-task form textarea {
   border-radius: 20px;
   resize: none;
   overflow: auto;
+  font-size: 20px;
 }
 html main .todo-full .task-container .add-task form .markimp,
 body main .todo-full .task-container .add-task form .markimp {
@@ -171,6 +173,7 @@ body main .todo-full .task-container .add-task form .markimp h2 {
 html main .todo-full .task-container .add-task form button,
 body main .todo-full .task-container .add-task form button {
   padding: 20px;
+  font-size: 20px;
   background-color: green;
   border: none;
   border-radius: 20px;
