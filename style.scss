@@ -1,0 +1,184 @@
+:root {
+  --pri: #010736;
+  --sec: #0d1c42;
+  --ter: #22396f;
+  --quat: #fcf1d0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "helvetica neue", sans-serif;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  main {
+    height: 100%;
+    width: 100%;
+    background-color: var(--pri);
+    color: white;
+    .Allelem {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: no-wrap;
+      .cards {
+        height: 400px;
+        width: 350px;
+        border-radius: 5px;
+        margin: 10px 10px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 5px;
+        }
+        .bottom {
+          height: 20%;
+          width: 100%;
+          padding: 10px 40px;
+          position: absolute;
+          bottom: -25%;
+          font-size: 25px;
+          background: linear-gradient(to bottom, transparent 20%, black);
+        }
+      }
+      .cards:hover .bottom {
+        position: absolute;
+        bottom: 0%;
+        left: 0%;
+        transition: all ease 0.5s;
+        cursor: pointer;
+      }
+      .cards:active {
+        scale: 0.98;
+      }
+    }
+    .elem {
+      height: 100%;
+      width: 100%;
+      background-color: var(--pri);
+      display: none;
+      position: absolute;
+      z-index: 20;
+      top: 0%;
+      left: 0%;
+      overflow: hidden;
+      padding: 20px;
+      p {
+        font-weight: 800;
+        font-size: 40px;
+      }
+      .back {
+        padding: 15px;
+        position: absolute;
+        top: 10px;
+        right: 30px;
+        box-shadow: inset 20px 20px --quat;
+        transition: all ease 0.3s;
+        border: 2px solid var(--quat);
+        border-radius: 20px;
+        background-color: #22396f;
+        font-size: 30px;
+      }
+      .back:hover {
+        background-color: red;
+      }
+      .back:active {
+        scale: 0.94;
+      }
+    }
+    .todo-full {
+      height: 100%;
+      width: 100%;
+      .task-container {
+        margin: 20px 20px;
+        height: 80%;
+        width: 98%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .add-task {
+          height: 100%;
+          width: 33%;
+          background-color: #0d1c42;
+          color: #fcf1d0;
+          border-radius: 20px;
+          form {
+            background-color: var(--tri);
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 30px;
+            input {
+              padding: 20px;
+              border: none;
+              border-radius: 20px;
+            }
+            textarea {
+              padding: 20px;
+              border: none;
+              border-radius: 20px;
+              resize: none;
+              overflow: auto;
+            }
+            button {
+              padding: 20px;
+              background-color: green;
+              border: none;
+              border-radius: 20px;
+            }
+          }
+        }
+        .remove-task {
+          height: 100%;
+          width: 65%;
+          background-color: #0d1c42;
+          color: black;
+          border-radius: 20px;
+          overflow: auto;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          .added {
+            padding: 20px;
+            min-height: 20%;
+            width: 100%;
+            border-radius: 20px;
+            overflow: auto;
+            background-color: var(--quat);
+            p {
+              font-size: 15px;
+              white-space: normal;
+              overflow-wrap: break-word;
+              word-break: break-word;
+              max-width: 100%;
+            }
+            button {
+              padding: 30px;
+              background-color: red;
+              border-radius: 20px;
+              border: none;
+              color: var(--tri);
+            }
+          }
+          .added::-webkit-scrollbar {
+            display: none;
+          }
+        }
+        .remove-task::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+  }
+}
