@@ -157,6 +157,17 @@ body main .todo-full .task-container .add-task form textarea {
   resize: none;
   overflow: auto;
 }
+html main .todo-full .task-container .add-task form .markimp,
+body main .todo-full .task-container .add-task form .markimp {
+  height: 20px;
+}
+html main .todo-full .task-container .add-task form .markimp h2,
+body main .todo-full .task-container .add-task form .markimp h2 {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  display: inline;
+}
 html main .todo-full .task-container .add-task form button,
 body main .todo-full .task-container .add-task form button {
   padding: 20px;
@@ -196,11 +207,12 @@ body main .todo-full .task-container .remove-task .added p {
 }
 html main .todo-full .task-container .remove-task .added button,
 body main .todo-full .task-container .remove-task .added button {
-  padding: 30px;
-  background-color: red;
-  border-radius: 20px;
+  padding: 10px;
+  background-color: green;
+  border-radius: 10px;
   border: none;
-  color: var(--tri);
+  color: white;
+  font-size: 20px;
 }
 html main .todo-full .task-container .remove-task .added::-webkit-scrollbar,
 body main .todo-full .task-container .remove-task .added::-webkit-scrollbar {

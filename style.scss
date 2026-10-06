@@ -130,6 +130,15 @@ body {
               resize: none;
               overflow: auto;
             }
+            .markimp{
+              height: 20px; 
+              h2{
+                background-color: red;
+                color: white;
+                padding: 10px;
+                display: inline;
+              }
+            }
             button {
               padding: 20px;
               background-color: green;
@@ -164,11 +173,12 @@ body {
               max-width: 100%;
             }
             button {
-              padding: 30px;
-              background-color: red;
-              border-radius: 20px;
+              padding: 10px;
+              background-color: green;
+              border-radius: 10px;
               border: none;
-              color: var(--tri);
+              color: white;
+              font-size: 20px;
             }
           }
           .added::-webkit-scrollbar {
