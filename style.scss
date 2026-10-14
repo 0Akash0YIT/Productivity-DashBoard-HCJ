@@ -203,4 +203,47 @@ body {
       background-color: red;
     }
   }
+  .moti-full{
+    height: 100%;
+    width: 100%;
+    .motout{
+      background-color:var(--sec);
+      height: 70%;
+      width: 92%;
+      margin: 50px;
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      p{
+        background-color: var(--ter);
+        border-radius: 20px;
+        text-align: center;
+      }
+      .quotebox{
+        height: 100%;
+        width: 100%;
+        position: relative;
+        color: white;
+        padding: 20px;
+        img{
+          position: absolute;
+          height: 100px;
+          opacity: 0.5;
+          top: 5px;
+        }
+        p{
+          font-size: 40px;
+          height: 100%;
+          padding: 70px 5px;
+        }
+      }
+      #author{
+        padding: 20px;
+        height: 100px;
+        text-align: end;
+      }
+    }
+  }
 }

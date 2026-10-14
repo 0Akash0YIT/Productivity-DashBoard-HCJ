@@ -247,4 +247,22 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', renderPlanFull);
 } else {
   renderPlanFull();
-}/
+}
+
+
+
+
+//This is where the motivation starts
+let quote = document.querySelector(".quotebox p")
+let author = document.querySelector(".motout #author")
+async function motivation() {
+  try {
+    let response = await fetch("https://dummyjson.com/quotes/random")
+    let data = await response.json()
+    author.textContent = data.author
+    quote.textContent = data.quote
+  } catch (error) {
+    console.error("Failed to fetch quote:", error)
+  }
+}
+motivation();

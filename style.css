@@ -235,4 +235,54 @@ body .plan-full .plan-contaiiner {
   height: 80%;
   width: 80%;
   background-color: red;
+}
+html .moti-full,
+body .moti-full {
+  height: 100%;
+  width: 100%;
+}
+html .moti-full .motout,
+body .moti-full .motout {
+  background-color: var(--sec);
+  height: 70%;
+  width: 92%;
+  margin: 50px;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+html .moti-full .motout p,
+body .moti-full .motout p {
+  background-color: var(--ter);
+  border-radius: 20px;
+  text-align: center;
+}
+html .moti-full .motout .quotebox,
+body .moti-full .motout .quotebox {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  color: white;
+  padding: 20px;
+}
+html .moti-full .motout .quotebox img,
+body .moti-full .motout .quotebox img {
+  position: absolute;
+  height: 100px;
+  opacity: 0.5;
+  top: 5px;
+}
+html .moti-full .motout .quotebox p,
+body .moti-full .motout .quotebox p {
+  font-size: 40px;
+  height: 100%;
+  padding: 70px 5px;
+}
+html .moti-full .motout #author,
+body .moti-full .motout #author {
+  padding: 20px;
+  height: 100px;
+  text-align: end;
 }/*# sourceMappingURL=style.css.map */
