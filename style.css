@@ -224,4 +224,15 @@ body main .todo-full .task-container .remove-task .added::-webkit-scrollbar {
 html main .todo-full .task-container .remove-task::-webkit-scrollbar,
 body main .todo-full .task-container .remove-task::-webkit-scrollbar {
   display: none;
+}
+html .plan-full,
+body .plan-full {
+  height: 100%;
+  width: 100%;
+}
+html .plan-full .plan-contaiiner,
+body .plan-full .plan-contaiiner {
+  height: 80%;
+  width: 80%;
+  background-color: red;
 }/*# sourceMappingURL=style.css.map */

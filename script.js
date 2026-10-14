@@ -112,3 +112,139 @@ form.addEventListener("submit", function (dets) {
 
     form.reset();
 });
+
+
+// This is For the Daily Planner
+// 1. Define your 24-hour time slots array
+let timeSlots = Array.from({ length: 24 }, (_, i) => {
+  const startHour24 = i;
+  const endHour24 = (i + 1) % 24;
+
+  const format12Hour = (hour) => {
+    const h = hour % 12 === 0 ? 12 : hour % 12;
+    const ampm = hour < 12 ? "AM" : "PM";
+    return `${h}:00${ampm}`;
+  };
+
+  const format24Hour = (hour) => String(hour).padStart(2, '0') + ":00";
+
+  return {
+    id: i + 1,
+    time: `${format12Hour(startHour24)} -${format12Hour(endHour24)}`,
+    start: format24Hour(startHour24),
+    end: format24Hour(endHour24 === 0 ? 24 : endHour24)
+  };
+});
+
+// 2. Handle New Day Reset Logic via localStorage
+const todayString = new Date().toISOString().split('T')[0]; // Gets YYYY-MM-DD
+const lastSavedDate = localStorage.getItem('lastActiveDate');
+
+if (lastSavedDate !== todayString) {
+  // It's a brand new day! Clear the input data storage
+  localStorage.removeItem('timeSlotData');
+  localStorage.setItem('lastActiveDate', todayString);
+}
+
+// 3. Inject CSS dynamically for the plan layout matching your theme
+const styleElement = document.createElement('style');
+styleElement.textContent = `
+  .plan-container {
+    height: 80%;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 10px;
+    margin-top: 20px;
+  }
+  .plan-container::-webkit-scrollbar {
+    display: none;
+  }
+  .plan {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+    background-color: var(--sec);
+    border-radius: 12px;
+    border: 1px solid var(--ter);
+    width: 100%;
+  }
+  .plan .time {
+    font-size: 10px !important;
+    font-weight: bold;
+    color: var(--quat);
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .plan input[type="text"] {
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: var(--tri);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+  }
+  .plan input[type="text"]:focus {
+    border: 1px solid var(--quat);
+  }
+`;
+document.head.appendChild(styleElement);
+
+// 4. Function to render elements inside .plan-container
+function renderPlanFull() {
+  const planContainer = document.querySelector('.plan-container');
+  
+  if (!planContainer) {
+    console.warn("Element with class 'plan-container' not found in the DOM.");
+    return;
+  }
+
+  // Clear inner content of container so removed items get deleted automatically
+  planContainer.innerHTML = '';
+
+  // Load any saved input values for the current day
+  let savedData = JSON.parse(localStorage.getItem('timeSlotData')) || {};
+
+  timeSlots.forEach(slot => {
+    // Create the plan section element
+    const planSection = document.createElement('section');
+    planSection.className = 'plan';
+    planSection.dataset.id = slot.id;
+
+    // Create time paragraph (forced to 10px font size)
+    const timeP = document.createElement('p');
+    timeP.className = 'time';
+    timeP.textContent = slot.time;
+
+    // Create text input with NO placeholder
+    const inputField = document.createElement('input');
+    inputField.type = 'text';
+
+    // Restore text if it was typed earlier today
+    if (savedData[slot.id]) {
+      inputField.value = savedData[slot.id];
+    }
+
+    // Save input values to localStorage as the user types
+    inputField.addEventListener('input', (e) => {
+      let currentData = JSON.parse(localStorage.getItem('timeSlotData')) || {};
+      currentData[slot.id] = e.target.value;
+      localStorage.setItem('timeSlotData', JSON.stringify(currentData));
+    });
+    
+    planSection.appendChild(timeP);
+    planSection.appendChild(inputField);
+    planContainer.appendChild(planSection);
+  });
+}
+
+// 5. Initialize render when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderPlanFull);
+} else {
+  renderPlanFull();
+}/

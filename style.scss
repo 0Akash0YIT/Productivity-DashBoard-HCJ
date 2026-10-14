@@ -194,4 +194,13 @@ body {
       }
     }
   }
+  .plan-full{
+    height: 100%;
+    width:100%;
+    .plan-contaiiner{
+      height: 80%;
+      width: 80%;
+      background-color: red;
+    }
+  }
 }
